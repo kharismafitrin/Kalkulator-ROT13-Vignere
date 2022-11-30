@@ -1,4 +1,4 @@
-# Projek Kriptografi
+# Project Kriptografi
 ## Kalkulator ROT13 + Vigenere (Web Based)
 
 ### Nama Kelompok:
