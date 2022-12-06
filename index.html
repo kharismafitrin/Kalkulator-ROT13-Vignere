@@ -28,69 +28,80 @@
         <div class="tab-pane fade show active" id="pills-rot13" role="tabpanel" aria-labelledby="pills-rot13-tab">
           <h5 class="text-center">ROT13 Cipher</h5>
           <hr>
-          <form action="">
+          <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="text" name="text"></textarea>
+              <textarea class="form-control" row="5" id="text" name="text" required></textarea>
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="encrypt" name="optradio" value="enkripsi" checked>Enkripsi
+                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" checked>Enkripsi
                 <label class="form-check-label" for="encrypt"></label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" id="decrypt" name="optradio" value="deskripsi">Deskripsi
+                <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" class="mt-4 btn btn-primary">Submit</button>
+            <button type="submit" onclick="inputHandler();" id="proses" value="rot13" class="mt-4 btn btn-primary">Submit</button>
           </form>
         </div>
         <div class="tab-pane fade" id="pills-vigenere" role="tabpanel" aria-labelledby="pills-vigenere-tab">
           <h5 class="text-center">Vigenere Cipher</h5>
           <hr>
-          <form action="">
+          <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="text" name="text"></textarea>
+              <textarea class="form-control" row="5" id="text" name="text" required></textarea>
             </div>
             <div class="mb-3">
               <label for="key" class="form-label">Key Vigenere:</label>
               <input type="text" class="form-control" id="key" name="key">
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="encrypt" name="optradio" value="enkripsi" checked>Enkripsi
+                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" checked>Enkripsi
                 <label class="form-check-label" for="encrypt"></label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" id="decrypt" name="optradio" value="deskripsi">Deskripsi
+                <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" class="mt-4 btn btn-primary">Submit</button>
+            <button type="submit" onclick="inputHandler();" id="proses" value="vigenere" class="mt-4 btn btn-primary">Submit</button>
           </form>
         </div>
         <div class="tab-pane fade" id="pills-gabungan" role="tabpanel" aria-labelledby="pills-gabungan-tab">
           <h5 class="text-center">ROT13 + Vigenere Cipher</h5>
           <hr>
-          <form action="">
+          <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="text" name="text"></textarea>
+              <textarea class="form-control" row="5" id="text" name="text" required></textarea>
             </div>
             <div class="mb-3">
               <label for="key" class="form-label">Key Vigenere:</label>
               <input type="text" class="form-control" id="key" name="key">
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="encrypt" name="optradio" value="enkripsi" checked>Enkripsi
+                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" checked>Enkripsi
                 <label class="form-check-label" for="encrypt"></label>
               </div>
               <div class="form-check">
-                <input type="radio" class="form-check-input" id="decrypt" name="optradio" value="deskripsi">Deskripsi
+                <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" class="mt-4 btn btn-primary">Submit</button>
+            <button type="submit" onclick="inputHandler();" id="proses" value="rot13vigenere" class="mt-4 btn btn-primary">Submit</button>
           </form>
         </div>
+
+        <div id="hasil">
+					<div class="alert alert-success  ">
+
+						<h5><strong>Hasil</strong></h5> <br>
+						<p id="finalResult"></p>
+					</div>
+				</div>
       </div>
     </div>
+    
+    <script src="/js/main.js" type="module"></script>
+
 </body>
 </html>
