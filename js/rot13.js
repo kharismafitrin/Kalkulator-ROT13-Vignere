@@ -1,12 +1,13 @@
 const ROT13 = {
   encrypt(str){
     let result = [];
-    str = str.toUpperCase();
-    const shift = 13;
+    str = str.toUpperCase();  // untuk mengubah input menjadi UpperCase
+    const shift = 13;            
     
+    //proses enkripsi
     for(let i = 0; i < str.length; i++){
-      let char = str[i];
-      if(this._checkAplhabet(char)){
+      let char = str[i];                    
+      if(this._checkAplhabet(char)){        
         char = String.fromCharCode(this._mod26(char.charCodeAt(0) - 65 + shift) + 65)
       }
       result.push(char);
@@ -20,6 +21,7 @@ const ROT13 = {
     str = str.toUpperCase();
     const shift = 13;
     
+    // proses dekripsi
     for(let i = 0; i < str.length; i++){
       let char = str[i];
       if(this._checkAplhabet(char)){

@@ -8,8 +8,10 @@ const Vigenere = {
     for (let i = 0; i < str.length; i++) {
       let char = str[i];
       if (this._checkAplhabet(char)) {
-        let temp =  this._mod26((char.charCodeAt(0) - 65) + (key[(i - nonAlphabet) % key.length].charCodeAt(0) - 65)) + 65;
-        char = String.fromCharCode(temp);
+        const plain25 = (char.charCodeAt(0) - 65);
+        const key25 = (key[(i - nonAlphabet) % key.length].charCodeAt(0) - 65);
+        const temp =  this._mod26(plain25 + key25)
+        char = String.fromCharCode(temp+65);
       } else {
         nonAlphabet++;
       }
@@ -27,8 +29,10 @@ const Vigenere = {
     for (let i = 0; i < str.length; i++) {
       let char = str[i];
       if (this._checkAplhabet(char)) {
-        let temp =  this._mod26((char.charCodeAt(0) - 65) - (key[(i - nonAlphabet) % key.length].charCodeAt(0) - 65)) + 65;
-        char = String.fromCharCode(temp);
+        const plain25 = (char.charCodeAt(0) - 65);
+        const key25 = (key[(i - nonAlphabet) % key.length].charCodeAt(0) - 65);
+        const temp =  this._mod26(plain25 - key25)
+        char = String.fromCharCode(temp+65);
       } else {
         nonAlphabet++;
       }
