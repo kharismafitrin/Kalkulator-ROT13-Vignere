@@ -1,65 +1,56 @@
-import ROT13 from './rot13.js';
-import Vigenere from './vigenere.js';
-
 var encryptFlag = true;
 var printObject = {
     finalResult: []
 }
 
-function inputHandler()
+function inputHandler(proses)
 {
-	var inputText = document.getElementById("text").value;
-	var inputKey = document.getElementById("key").value;
-	var textOutput;
-
-    var proses = document.getElementById("proses").value;
+    var textInput = document.getElementById("text").value;
+    var textInputV = document.getElementById("textV").value;
+	var keyInput = document.getElementById("key").value;
+    var textInputRV = document.getElementById("textRV").value;
+	var keyInputRV = document.getElementById("keyRV").value;
+	var textOutput = "";
 
     if(proses == "vigenere"){
-        if (!keyInput || !keyValue || !isAllAlphabets(keyValue)) {
-            clearResult();
-            return;
-        }
-
+        // if (!keyInput || !keyValue || !isAllAlphabets(keyInput)) {
+        //     clearResult();
+        //     return;
+        // }
+        console.log(textInputV)
         if (encryptFlag) {
-            textOutput = Vigenere.encrypt(textInput.value, keyInput.value);
+            textOutput = Vigenere.encrypt(textInputV, keyInput);
         } else {
-            textOutput = Vigenere.decrypt(textInput.value, keyInput.value);
+            textOutput = Vigenere.decrypt(textInputV, keyInput);
         }
-    }
-
-    else if(proses == "rot13"){
-        if (!keyInput) {
-            clearResult();
-            return;
-        }
+    }else if(proses == "rot13"){
         if (encryptFlag) {
-            textOutput = ROT13.encrypt(textInput.value, keyInput.value);
+            textOutput = ROT13.encrypt(textInput, keyInput);
         } else {
-            textOutput = ROT13.decrypt(textInput.value, keyInput.value);
+            textOutput = ROT13.decrypt(textInput, keyInput);
         }
-    }
-
-    else{
-        if (!keyInput || !keyValue || !isAllAlphabets(keyValue)) {
-            clearResult();
-            return;
-        }
+    }else{
+        // if (!keyInput || !keyValue || !isAllAlphabets(keyValue)) {
+        //     clearResult();
+        //     return;
+        // }
 
         if (encryptFlag) {
-            const vigenere = Vigenere.encrypt(textInput.value, keyInput.value);
+            const vigenere = Vigenere.encrypt(textInputRV, keyInputRV);
             textOutput = ROT13.encrypt(vigenere);
         } else {
-            const rot13 = ROT13.decrypt(textInput.value);
-            textOutput = Vigenere.decrypt(rot13, keyInput.value);
+            const rot13 = ROT13.decrypt(textInputRV);
+            textOutput = Vigenere.decrypt(rot13, keyInputRV);
         }
     }
     printObject.finalResult = textOutput;
     generateAnswerPage();
+    console.log(textOutput)
     return textOutput;
 }
 
 function generateAnswerPage(){
-    $("#finalResult").append(printObject.finalResult);
+    document.getElementById("finalResult").innerHTML = printObject.finalResult;
 }
 
 // document.addEventListener('DOMContentLoaded', () => {
@@ -125,7 +116,7 @@ function generateAnswerPage(){
 
 
 const generateResult = (value) => {
-    const result = document.querySelector('.result');
+    const result = document.querySelector('#finalResult');
     result.innerHTML = `
       <label for="input_result">Result : </label>
       <input type="text" id="input_result" value='${value}' disabled>
@@ -145,8 +136,8 @@ function checkAplhabet(char) {
 }
   
 function clearResult(){
-    result = document.querySelector('.result');
-    result.innerHTML = ``;
+    result = document.querySelector('#finalResult');
+    result.innerHTML = "";
 }
 
 function setEncryptFlag(flag){

@@ -43,7 +43,3 @@ const ROT13 = {
       return (/[a-zA-Z]/).test(char);
     }
   }
-  
-  
-  
-  export default ROT13;
