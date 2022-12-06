@@ -23,5 +23,5 @@
 <img src="img/ss-vigenere.png" alt="ss-vigenere">
 
 * ROT13 + Vigenere
-<img src="img/rot13-vigenere.png" alt="ss-rot13-vigenere">
+<img src="img/ss-rot13-vigenere.png" alt="ss-rot13-vigenere">
 
