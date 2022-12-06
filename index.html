@@ -34,7 +34,7 @@
           <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="text" name="text" required></textarea>
+              <textarea class="form-control" row="5" id="text" name="text" ></textarea>
             </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" onclick="setEncryptFlag(true);" checked>Enkripsi
@@ -44,7 +44,10 @@
                 <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" onclick="inputHandler('rot13');" id="proses" value="rot13" class="mt-4 btn btn-primary">Submit</button>
+              <div class="row d-grid gap-2 d-md-flex justify-content-md-center">
+                <button type="submit" onclick="inputHandler('rot13');" id="proses" value="rot13" class="col-4 btn btn-primary">Submit</button>
+                <button class="col-4  btn btn-warning" type="reset">RESET</button>
+              </div>
           </form>
         </div>
         <div class="tab-pane fade" id="pills-vigenere" role="tabpanel" aria-labelledby="pills-vigenere-tab">
@@ -53,21 +56,24 @@
           <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="textV" name="text" required></textarea>
+              <textarea class="form-control" row="5" id="textV" name="text" ></textarea>
             </div>
             <div class="mb-3">
               <label for="key" class="form-label">Key Vigenere:</label>
               <input type="text" class="form-control" id="key" name="key">
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" checked>Enkripsi
+                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" onclick="setEncryptFlag(true);"" checked>Enkripsi
                 <label class="form-check-label" for="encrypt"></label>
               </div>
               <div class="form-check">
                 <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" onclick="inputHandler('vigenere');" id="proses" value="vigenere" class="mt-4 btn btn-primary">Submit</button>
+              <div class="row d-grid gap-2 d-md-flex justify-content-md-center">
+                <button type="submit" onclick="inputHandler('vigenere');" id="proses" value="vigenere" class="col-4 btn btn-primary">Submit</button>
+                <button class="col-4  btn btn-warning" type="reset">RESET</button>
+              </div>
           </form>
         </div>
         <div class="tab-pane fade" id="pills-gabungan" role="tabpanel" aria-labelledby="pills-gabungan-tab">
@@ -76,27 +82,35 @@
           <form id="form" onsubmit="return false;">
             <div class="mb-3 mt-3">
               <label for="text" class="form-label">Masukkan Plaintext/Ciphertext:</label>
-              <textarea class="form-control" row="5" id="textRV" name="text" required></textarea>
+              <textarea class="form-control" row="5" id="textRV" name="text" ></textarea>
             </div>
             <div class="mb-3">
               <label for="key" class="form-label">Key Vigenere:</label>
               <input type="text" class="form-control" id="keyRV" name="key">
             </div>
             <div class="form-check">
-                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" checked>Enkripsi
+                <input type="radio" class="form-check-input" id="encrypt" name="pilihan" value="encrypt" onclick="setEncryptFlag(true);"" checked>Enkripsi
                 <label class="form-check-label" for="encrypt"></label>
               </div>
               <div class="form-check">
                 <input type="radio" class="form-check-input" id="decrypt" name="pilihan" value="decrypt" onclick="setEncryptFlag(false);">Deskripsi
                 <label class="form-check-label" for="decrypt"></label>
               </div>
-            <button type="submit" onclick="inputHandler('rot13vigenere');" id="proses" value="rot13vigenere" class="mt-4 btn btn-primary">Submit</button>
+              <div class="row d-grid gap-2 d-md-flex justify-content-md-center">
+                <button type="submit" onclick="inputHandler('rot13vigenere');" id="proses" value="rot13vigenere" class="col-4 btn btn-primary">Submit</button>
+                <button class="col-4  btn btn-warning" type="reset">RESET</button>
+              </div>
+            
           </form>
         </div>
-
-        <div id="hasil">
+        <hr>
+        <div id="inputError" style="display: none">
+          <div class="alert alert-danger"">
+            <strong>Info!</strong> Kalkulasi tidak dapat dilakukan, Silahkan cek kembali input anda.
+          </div>
+        </div>
+        <div id="hasil" style="display: none ;">
 					<div class="alert alert-success  ">
-
 						<h5><strong>Hasil</strong></h5> <br>
 						<p id="finalResult"></p>
 					</div>
