@@ -9,4 +9,4 @@
 #### ROT-13 dan Vigenere Cipher
 *ROT-13
 ROT-13 merupakan algoritma enkripsi sederhana yang menggunakan sandi abjad tunggal dengan pergeseran K=13.
-<img src="../img/rot13.png" alt="Encryption-Screenshot">
+<img src="img/rot13.png" alt="rot-13">
